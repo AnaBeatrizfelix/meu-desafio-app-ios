@@ -13,8 +13,8 @@ struct NavigationBar: View {
             Image("Logotipo_g1")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 40, height: 40)
-            
+                .frame(width: 30, height: 30)
+                .padding(.horizontal, 10)
             Spacer()
             
             Button (action : {
@@ -32,10 +32,11 @@ struct NavigationBar: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.black)
                     .frame(width: 25, height: 25)
-            }
+                    .padding(.horizontal, 10)
             }
         }
     }
+}
 #Preview {
     NavigationBar()
 }
