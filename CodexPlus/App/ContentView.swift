@@ -40,6 +40,9 @@ struct ContentView: View {
                         }
                         .padding(.vertical, 8)
                     }
+                    .refreshable {
+                        await loadFeed()
+                    }
                 }
                 ButtonBar()
             }
@@ -54,8 +57,14 @@ struct ContentView: View {
         defer { isLoading = false }
         
         do {
-            feedItems = try await service.fetchFeed()
+            let newItems = try await service.fetchFeed()
+            if !newItems.isEmpty {
+                feedItems = newItems
+            }
         } catch {
+            if (error as? URLError)?.code == .cancelled {
+                return
+            }
             errorText = "Erro: \(error.localizedDescription)"
         }
     }

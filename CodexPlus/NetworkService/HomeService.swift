@@ -12,6 +12,21 @@ enum RequestError: Error {
     case emptyData
 }
 
+extension RequestError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .invalidURL:
+            return "URL inválida"
+        case .requestFailed(let message):
+            return "Falha na conexão: \(message)"
+        case .decodeFailed:
+            return "Erro ao processar os dados recebidos."
+        case .emptyData:
+            return "Nenhum notícia encontrada"
+        }
+    }
+}
+
 struct HomeService {
     private let feedURL = "https://native-leon.globo.com/feed/g1"
     
@@ -26,6 +41,7 @@ struct HomeService {
         do {
             let (data, _) = try await URLSession.shared.data(for: request)
             
+            
             guard !data.isEmpty else {
                 throw RequestError.emptyData
             }
@@ -36,6 +52,8 @@ struct HomeService {
             return items.filter { $0.type == "materia" || $0.type == "basico" }
         } catch _ as DecodingError {
             throw RequestError.decodeFailed
+        } catch let urlError as URLError  where urlError.code == .cancelled {
+            return[]
         } catch {
             throw RequestError.requestFailed(error.localizedDescription)
         }
