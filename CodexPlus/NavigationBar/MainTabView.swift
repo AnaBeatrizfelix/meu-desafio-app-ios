@@ -33,7 +33,7 @@ struct MainTabView: View {
             Text("")
                 .tabItem {
                     VStack {
-                        Image(systemName:selectedTab == 2 ?  "line.3.horizontal.fill" : "line.3.horizontal")
+                        Image(systemName:selectedTab == 2 ?  "line.3.horizontal.circle.fill" : "line.3.horizontal.circle")
                             .environment( \.symbolVariants, selectedTab == 2 ? .fill : .none)
                         Text("Menu")
                     }
