@@ -26,11 +26,7 @@ struct MenuView: View {
                 } else {
                     List(items, id: \.url) { item in
                         if let url = URL(string: item.url) {
-                            Link(destination: url) {
-                                Text(item.title.capitalized)
-                                    .font(.headline)
-                                    .padding(.vertical, 4)
-                            }
+                            LinkRowView(title: item.title, url: url)
                             
                         }
                     }
