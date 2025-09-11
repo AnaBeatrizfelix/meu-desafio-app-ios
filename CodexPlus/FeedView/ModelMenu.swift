@@ -5,8 +5,7 @@ struct MenuPayload: Codable {
     let menuItems: [MenuItem]
 }
 
-struct MenuItem: Codable, Identifiable {
+struct MenuItem: Codable {
     let title: String
     let url: String
-    var id: String { url } 
 }
