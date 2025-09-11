@@ -11,7 +11,7 @@ import SwiftUI
 struct CodexPlusApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }

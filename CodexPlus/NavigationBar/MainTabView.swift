@@ -5,7 +5,8 @@ struct MainTabView: View {
     
     var body: some View {
         TabView (selection: $selectedTab) {
-            Text("")
+            
+            ContentView()
                 .tabItem {
                     VStack {
                         Image(systemName: selectedTab == 0 ? "house.fill" : "house")
@@ -18,7 +19,7 @@ struct MainTabView: View {
                 .onAppear {selectedTab = 0 }
                 .tag(0)
             
-            Text("")
+            AgronegociosView()
                 .tabItem {
                     VStack {
                         Image(systemName:selectedTab == 1 ? "leaf.fill" : "leaf")
@@ -30,7 +31,7 @@ struct MainTabView: View {
                 .onAppear {selectedTab = 1 }
                 .tag(1)
             
-            Text("")
+            MenuView()
                 .tabItem {
                     VStack {
                         Image(systemName:selectedTab == 2 ?  "line.3.horizontal.circle.fill" : "line.3.horizontal.circle")
