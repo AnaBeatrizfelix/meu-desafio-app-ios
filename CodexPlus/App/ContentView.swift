@@ -44,7 +44,7 @@ struct ContentView: View {
                         await loadFeed()
                     }
                 }
-                ButtonBar()
+      
             }
             .ignoresSafeArea(edges: .bottom)
         }
