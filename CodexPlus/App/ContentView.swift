@@ -8,40 +8,35 @@ struct ContentView: View {
     private let service = HomeService()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 if isLoading && feedItems.isEmpty {
                     ProgressView()
                 } else if let errorText {
-                    ErroView (errorText: errorText,
-                              retryAction: {
+                    ErroView (errorText: errorText){
                         Task { await loadFeed() }
                     }
-                    )
                     
                 } else {
                     NavigationBar()
+                    
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack(spacing: 16) {
                             ForEach(feedItems, id: \.idValue) { item in
-                                if let link = item.content?.url,
-                                   let url = URL(string: link.replacingOccurrences(of: "http://", with: "https://")) {
-                                    Link(destination: url) {
-                                        ModelFeedItem(item: item)
-                                    }
-                                    .buttonStyle(.plain)
-                                }
+                                NewsRowView(item: item)
                             }
+                            
                         }
                         .padding(.vertical, 8)
                     }
                     .refreshable {
                         await loadFeed()
+                        
+                        
                     }
                 }
-      
+
             }
-            .ignoresSafeArea(edges: .bottom)
         }
         .task { await loadFeed() }
     }
@@ -63,4 +58,7 @@ struct ContentView: View {
             errorText = "Erro: \(error.localizedDescription)"
         }
     }
+}
+#Preview {
+ContentView()
 }
