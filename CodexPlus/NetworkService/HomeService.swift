@@ -28,10 +28,9 @@ extension RequestError: LocalizedError {
 }
 
 struct HomeService {
-    private let feedURL = "https://native-leon.globo.com/feed/g1"
-    
-    func fetchFeed() async throws -> [NewsLetter] {
-        guard let url = URL(string: feedURL) else {
+  
+    func fetchFeed(_ feed: FeedMenuBarItem) async throws -> [NewsLetter] {
+        guard let url = URL(string: feed.url) else {
             throw RequestError.invalidURL
         }
         
