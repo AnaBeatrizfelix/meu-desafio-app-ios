@@ -13,17 +13,11 @@ struct AgronegociosView: View {
                 if isLoading && feedItems.isEmpty {
                     ProgressView()
                 } else if let errorText {
-                    VStack(spacing: 12) {
-                        Text("Erro ao carregar feed")
-                            .font(.headline)
-                        Text(errorText)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Button("Tentar novamente") {
-                            Task { await loadFeed() }
-                        }
+                    ErroView (errorText: errorText,
+                              retryAction: {
+                        Task { await loadFeed() }
                     }
-                    .padding(.top, 50)
+                    )
                 } else {
                     NavigationBar()
                     ScrollView(.vertical, showsIndicators: false) {
@@ -44,9 +38,9 @@ struct AgronegociosView: View {
                         await loadFeed()
                     }
                 }
-              
+                
             }
-           
+            
         }
         .task { await loadFeed() }
     }

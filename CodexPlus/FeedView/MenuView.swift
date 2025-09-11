@@ -19,19 +19,10 @@ struct MenuView: View {
             VStack {
                 if isLoading && items.isEmpty {
                     ProgressView()
-                } else if let errorText = errorText {
-                    VStack(spacing: 12) {
-                        Text("Erro ao carregar menu")
-                            .font(.headline)
-                        Text(errorText)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Button("Tentar novamente") {
-                            loadMenu()
-                            
-                        }
-                    }
-                    .padding()
+                } else if let errorText {
+                    ErroView (errorText: errorText,
+                              retryAction: {loadMenu()}
+                    )
                 } else {
                     List(items, id: \.url) { item in
                         if let url = URL(string: item.url) {
@@ -51,7 +42,7 @@ struct MenuView: View {
             loadMenu()
         }
     }
-        
+    
     private func loadMenu() {
         
         do{

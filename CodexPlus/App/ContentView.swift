@@ -13,17 +13,12 @@ struct ContentView: View {
                 if isLoading && feedItems.isEmpty {
                     ProgressView()
                 } else if let errorText {
-                    VStack(spacing: 12) {
-                        Text("Erro ao carregar feed")
-                            .font(.headline)
-                        Text(errorText)
-                            .font(.footnote)
-                            .foregroundColor(.secondary)
-                        Button("Tentar novamente") {
-                            Task { await loadFeed() }
-                        }
+                    ErroView (errorText: errorText,
+                              retryAction: {
+                        Task { await loadFeed() }
                     }
-                    .padding(.top, 50)
+                    )
+                    
                 } else {
                     NavigationBar()
                     ScrollView(.vertical, showsIndicators: false) {
@@ -57,7 +52,7 @@ struct ContentView: View {
         defer { isLoading = false }
         
         do {
-            let newItems = try await service.fetchFeed()
+            let newItems = try await service.fetchFeed(.g1)
             if !newItems.isEmpty {
                 feedItems = newItems
             }
