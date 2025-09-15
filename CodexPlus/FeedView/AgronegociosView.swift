@@ -9,6 +9,7 @@ struct AgronegociosView: View {
     
     var body: some View {
         NavigationStack {
+            
             VStack {
                 if isLoading && feedItems.isEmpty {
                     ProgressView()
@@ -27,7 +28,6 @@ struct AgronegociosView: View {
                             }
                         }
                         .padding(.vertical, 8)
-                        
                     }
                     .refreshable {
                         await loadFeed()
@@ -35,10 +35,10 @@ struct AgronegociosView: View {
                 }
                 
             }
-            
+            .task { await loadFeed() }
         }
         
-        .task { await loadFeed() }
+        
     }
     
     private func loadFeed() async {

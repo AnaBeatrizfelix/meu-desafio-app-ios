@@ -7,22 +7,28 @@
 
 import SwiftUI
 
-struct LinkRowView: View {
-    let title: String
+struct LinkRowView<Content:  View>: View {
     let url: URL
+    @ViewBuilder let content: () -> Content
     
     var body: some View {
-        Link(destination: url) {
-            Text(title.capitalized)
-                .font(.headline)
-                .padding(.vertical, 4)
+        NavigationLink(destination: WebView(url: url)) {
+          content()
         }
-    }
-}
+        .buttonStyle(.plain)
+            }
+        }
 
 #Preview {
-    LinkRowView(
-        title: "G1"
-        , url: URL(string: "https://www.g1.com")!
-    )
-}
+    NavigationStack {
+           LinkRowView(url: URL(string: "https://www.g1.com")!) {
+               Text("G1")
+                   .font(.headline)
+                   .padding()
+                   .frame(maxWidth: .infinity, alignment: .leading)
+                   .background(Color(.systemGray6))
+                   .cornerRadius(8)
+           }
+           .padding()
+       }
+   }

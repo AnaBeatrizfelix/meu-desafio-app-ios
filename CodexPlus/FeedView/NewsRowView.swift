@@ -13,13 +13,12 @@ struct NewsRowView: View {
     var body: some View {
         if let link = item.content?.url,
            let url = URL(string: link.replacingOccurrences(of: "http://", with: "https://")) {
-            Link(destination: url) {
+            LinkRowView(url: url){
                 ModelFeedItem(item: item)
             }
             .buttonStyle(.plain)
         }
     }
-    
 }
 #Preview {
     NewsRowView(item: itemMock)
