@@ -44,6 +44,16 @@
 			path = FeedView;
 			sourceTree = "<group>";
 		};
+		A14D11A52E7A509800C51D3C /* Features */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A14D11A92E7A510600C51D3C /* Shered */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Shered;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,8 @@
 		A14D10352E6F4FBE00C51D3C /* CodexPlus */ = {
 			isa = PBXGroup;
 			children = (
+				A14D11A92E7A510600C51D3C /* Shered */,
+				A14D11A52E7A509800C51D3C /* Features */,
 				A14D10312E6F4FBE00C51D3C /* NavigationBar */,
 				A14D105C2E6FDA9100C51D3C /* NetworkService */,
 				A14D10712E70887200C51D3C /* menu.json */,
@@ -117,6 +129,8 @@
 				A14D105C2E6FDA9100C51D3C /* NetworkService */,
 				A14D10612E6FDCAB00C51D3C /* Models */,
 				A14D10772E70971200C51D3C /* FeedView */,
+				A14D11A52E7A509800C51D3C /* Features */,
+				A14D11A92E7A510600C51D3C /* Shered */,
 			);
 			name = CodexPlus;
 			packageProductDependencies = (
