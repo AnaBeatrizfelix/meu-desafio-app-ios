@@ -19,14 +19,7 @@ struct MenuView: View {
                 } else {
                     List(items, id: \.url) { item in
                         if let url = URL(string: item.url) {
-                            LinkRowView(url: url) {
-                                Text(item.title.capitalized)
-                                    .font(.headline)
-                                    .padding()
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Color(.systemGray6))
-                                    .cornerRadius(8)
-                            }
+                            MenuRowView(title: item.title, url: url)
                         }
                     }
                     .listStyle(.insetGrouped)

@@ -34,14 +34,19 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
-		A14D10612E6FDCAB00C51D3C /* Models */ = {
+		A14D11A52E7A509800C51D3C /* Features */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Models;
+			path = Features;
 			sourceTree = "<group>";
 		};
-		A14D10772E70971200C51D3C /* FeedView */ = {
+		A14D11A92E7A510600C51D3C /* Shared */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FeedView;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A14D11B82E7A55D900C51D3C /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -60,6 +65,7 @@
 		A14D10182E6F3ED600C51D3C = {
 			isa = PBXGroup;
 			children = (
+				A14D10712E70887200C51D3C /* menu.json */,
 				A14D10352E6F4FBE00C51D3C /* CodexPlus */,
 				A14D10222E6F3ED700C51D3C /* Products */,
 			);
@@ -73,24 +79,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A14D10312E6F4FBE00C51D3C /* NavigationBar */ = {
+		A14D10312E6F4FBE00C51D3C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				A14D10392E6F503200C51D3C /* NavigationBar.swift */,
 				A14D10CF2E72995E00C51D3C /* MainTabView.swift */,
 			);
-			path = NavigationBar;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		A14D10352E6F4FBE00C51D3C /* CodexPlus */ = {
 			isa = PBXGroup;
 			children = (
-				A14D10312E6F4FBE00C51D3C /* NavigationBar */,
-				A14D105C2E6FDA9100C51D3C /* NetworkService */,
-				A14D10712E70887200C51D3C /* menu.json */,
-				A14D10772E70971200C51D3C /* FeedView */,
-				A14D10612E6FDCAB00C51D3C /* Models */,
 				A14D103B2E6F58E000C51D3C /* App */,
+				A14D11A52E7A509800C51D3C /* Features */,
+				A14D11A92E7A510600C51D3C /* Shared */,
+				A14D10312E6F4FBE00C51D3C /* Navigation */,
+				A14D105C2E6FDA9100C51D3C /* NetworkService */,
+				A14D11B82E7A55D900C51D3C /* Models */,
 				A14D10322E6F4FBE00C51D3C /* Assets.xcassets */,
 				A14D10412E6F684900C51D3C /* README .swift */,
 			);
@@ -115,8 +121,9 @@
 			fileSystemSynchronizedGroups = (
 				A14D103B2E6F58E000C51D3C /* App */,
 				A14D105C2E6FDA9100C51D3C /* NetworkService */,
-				A14D10612E6FDCAB00C51D3C /* Models */,
-				A14D10772E70971200C51D3C /* FeedView */,
+				A14D11A52E7A509800C51D3C /* Features */,
+				A14D11A92E7A510600C51D3C /* Shared */,
+				A14D11B82E7A55D900C51D3C /* Models */,
 			);
 			name = CodexPlus;
 			packageProductDependencies = (

@@ -18,7 +18,7 @@ struct ContentView: View {
                     }
                     
                 } else {
-                    NavigationBar()
+                    Navigation()
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack(spacing: 16) {
