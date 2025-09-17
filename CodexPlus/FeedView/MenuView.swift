@@ -1,10 +1,3 @@
-//
-//  MenuView.swift
-//  CodexPlus
-//
-//  Created by ana on 10/09/25.
-//
-
 import SwiftUI
 
 struct MenuView: View {
@@ -26,13 +19,19 @@ struct MenuView: View {
                 } else {
                     List(items, id: \.url) { item in
                         if let url = URL(string: item.url) {
-                            LinkRowView(title: item.title, url: url)
-                            
+                            LinkRowView(url: url) {
+                                Text(item.title.capitalized)
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(Color(.systemGray6))
+                                    .cornerRadius(8)
+                            }
                         }
                     }
                     .listStyle(.insetGrouped)
                 }
-            }.tint(.red)
+            }
         }
         .onAppear{
             loadMenu()

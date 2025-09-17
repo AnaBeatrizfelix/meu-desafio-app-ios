@@ -24,8 +24,8 @@ struct ContentView: View {
                         LazyVStack(spacing: 16) {
                             ForEach(feedItems, id: \.idValue) { item in
                                 NewsRowView(item: item)
+                                
                             }
-                            
                         }
                         .padding(.vertical, 8)
                     }
@@ -35,7 +35,7 @@ struct ContentView: View {
                         
                     }
                 }
-
+                
             }
         }
         .task { await loadFeed() }
@@ -60,5 +60,5 @@ struct ContentView: View {
     }
 }
 #Preview {
-ContentView()
+    ContentView()
 }
