@@ -20,7 +20,7 @@ struct AgronegociosView: View {
                     }
                     )
                 } else {
-                    NavigationBar()
+                    Navigation()
                     ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack(spacing: 16) {
                             ForEach(feedItems, id: \.idValue) { item in

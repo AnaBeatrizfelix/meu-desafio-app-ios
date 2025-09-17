@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationBar: View {
+struct Navigation: View {
     var body: some View {
         HStack {
             Image("Logotipo_g1")
@@ -38,5 +38,5 @@ struct NavigationBar: View {
     }
 }
 #Preview {
-    NavigationBar()
+    Navigation()
 }
